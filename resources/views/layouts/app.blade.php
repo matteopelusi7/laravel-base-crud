@@ -7,6 +7,8 @@
     <title>Comics</title>
 </head>
 <body>
+
+    @include('partials.header')
     
     @yield('mainContent')
 

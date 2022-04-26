@@ -16,6 +16,7 @@
                     <th>Serie</th>
                     <th>Data</th>
                     <th>Tipo</th>
+                    <th>Link</th>
                 </thead>
 
                 <tbody>
@@ -32,6 +33,9 @@
                             <td>{{ $comic->series }}</td>
                             <td>{{ $comic->date }}</td>
                             <td>{{ $comic->type }}</td>
+                            <td>
+                                <a href="{{ route('comics.show', $comic) }}">Visualizza</a>
+                            </td>
                         </tr>
 
                     @endforeach
