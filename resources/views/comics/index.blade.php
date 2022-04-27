@@ -17,6 +17,7 @@
                     <th>Data</th>
                     <th>Tipo</th>
                     <th>Link</th>
+                    <th>Modifica</th>
                 </thead>
 
                 <tbody>
@@ -35,6 +36,9 @@
                             <td>{{ $comic->type }}</td>
                             <td>
                                 <a href="{{ route('comics.show', $comic) }}">Visualizza</a>
+                            </td>
+                            <td>
+                                <a href="{{ route('comics.edit', $comic) }}">Modifica</a>
                             </td>
                         </tr>
 
