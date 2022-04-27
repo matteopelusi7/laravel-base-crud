@@ -1,0 +1,23 @@
+header {
+    padding: 30px 0;
+}
+
+nav ul  {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    gap: 30px;
+}
+
+tbody tr td, thead th {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+main {
+    padding-bottom: 50px;
+}
+
+form div {
+    line-height: 30px;
+}
