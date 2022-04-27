@@ -9,6 +9,7 @@
             <h1>Crea nuovo Comic</h1>
 
             <form action="{{ route('comics.store') }}" method="POST">
+                @csrf
 
                 <div>
                     <label for="title">Titolo:</label>
@@ -19,7 +20,7 @@
                     <textarea name="description" id="description" cols="30" rows="10"></textarea>
                 </div>
                 <div>
-                    <label for="img">Descrizione:</label>
+                    <label for="img">Immagine:</label>
                     <input type="text" id="img" name="img" placeholder="Inserisci URL immagine">
                 </div>
                 <div>
