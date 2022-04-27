@@ -12,7 +12,19 @@
             <p>{{ $comic->series }}</p>
             <p>{{ $comic->date }}</p>
             <p>{{ $comic->type }}</p>
-        </div>    
+        </div> 
+        <div>
+            <form action="{{ route('comics.destroy', $comic) }}" method="POST">
+
+                @csrf
+                @method('DELETE')
+
+                <button type="submit">
+                    Elimina
+                </button>
+
+            </form>
+        </div>   
         
     </main>
     
