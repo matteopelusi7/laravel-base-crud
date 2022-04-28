@@ -12,41 +12,73 @@
                 @csrf
                 @method('PUT')
 
-                <div>
-                    <label for="title">Titolo:</label>
-                    <input type="text" id="title" name="title" required value="{{ $comic->title }}" placeholder="Inserisci il titolo">
+                <div class="form-group">
+                    <label for="title" class="form-label">Titolo:</label>
+                    <input type="text" id="title" class=" @error('title') is-invalid @enderror form-control" name="title" value="{{ $comic->title }}" placeholder="Inserisci il titolo">
+                    @error('title')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
-                <div>
-                    <label for="description">Descrizione:</label>
-                    <textarea name="description" id="description" cols="30" rows="10">{{ $comic->description }}</textarea>
+                <div class="form-group">
+                    <label for="description" class="form-label">Descrizione:</label>
+                    <textarea name="description" id="description" class=" @error('description') is-invalid @enderror form-control" cols="30" rows="10">{{ $comic->description }}</textarea>
+                    @error('description')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
-                <div>
-                    <label for="img">Immagine:</label>
-                    <input type="text" id="img" name="img" required value="{{ $comic->img }}" placeholder="Inserisci URL immagine">
+                <div class="form-group">
+                    <label for="img" class="form-label">Immagine:</label>
+                    <input type="text" id="img" name="img" class=" @error('img') is-invalid @enderror form-control" value="{{ $comic->img }}" placeholder="Inserisci URL immagine">
+                    @error('img')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
-                <div>
-                    <label for="price">Prezzo:</label>
-                    <input type="text" id="price" name="price" required value="{{ $comic->price }}" placeholder="Inserisci il prezzo">
+                <div class="form-group">
+                    <label for="price" class="form-label">Prezzo:</label>
+                    <input type="text" id="price" name="price" class=" @error('price') is-invalid @enderror form-control" value="{{ $comic->price }}" placeholder="Inserisci il prezzo">
+                    @error('price')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
-                <div>
-                    <label for="series">Serie:</label>
-                    <input type="text" id="series" name="series" required value="{{ $comic->series }}" placeholder="Inserisci la serie">
+                <div class="form-group">
+                    <label for="series" class="form-label">Serie:</label>
+                    <input type="text" id="series" class=" @error('series') is-invalid @enderror form-control" name="series" value="{{ $comic->series }}" placeholder="Inserisci la serie">
+                    @error('series')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
-                <div>
-                    <label for="date">Data:</label>
-                    <input type="text" id="date" name="date" required value="{{ $comic->date }}" placeholder="Inserisci la data di uscita">
+                <div class="form-group">
+                    <label for="date" class="form-label">Data:</label>
+                    <input type="text" id="date" class=" @error('date') is-invalid @enderror form-control" name="date" value="{{ $comic->date }}" placeholder="Inserisci la data di uscita">
+                    @error('date')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
-                <div>
-                    <label for="type">Tipo:</label>
-                    <select name="type" id="type" required>
+                <div class="form-group">
+                    <label for="type" class="form-label">Tipo:</label>
+                    <select name="type" id="type">
+                        <option value="">Seleziona il tipo</option>
                         <option value="comic_book" {{ $comic->type == 'comic book' ? 'selected' : '' }}>Comic Book</option>
                         <option value="graphic_novel" {{ $comic->type == 'graphic novel' ? 'selected' : '' }}>Graphic Novel</option>
                     </select>
+                    @error('type')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <button type="submit">
                     Modifica
                 </button>
+
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
 
             </form>
 
