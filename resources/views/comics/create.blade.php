@@ -57,8 +57,8 @@
                     <label for="type" class="form-label">Tipo:</label>
                     <select name="type" id="type">
                         <option value="">Selezione il tipo</option>
-                        <option value="comic_book">Comic Book</option>
-                        <option value="graphic_novel">Graphic Novel</option>
+                        <option value="comic_book" {{ old('type')  == 'comic_book' ? 'selected' : '' }}>Comic Book</option>
+                        <option value="graphic_novel" {{ old('type')  == 'graphic_novel' ? 'selected' : '' }}>Graphic Novel</option>
                     </select>
                     @error('type')
                         <div class="alert alert-danger">{{ $message }}</div>
