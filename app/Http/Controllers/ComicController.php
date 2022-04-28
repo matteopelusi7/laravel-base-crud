@@ -42,10 +42,10 @@ class ComicController extends Controller
     {
 
         $request->validate([
-            'title' => 'required|max:255',
+            'title' => 'required|max:200',
             'description' => 'required',
             'img' => 'required|url',
-            'price' => 'required',
+            'price' => 'required|numeric',
             'series' => 'required|max:150',
             'date' => 'required|max:150',
             'type' => [
@@ -98,10 +98,10 @@ class ComicController extends Controller
     {
 
         $request->validate([
-            'title' => 'required|max:255',
+            'title' => 'required|max:200',
             'description' => 'required',
             'img' => 'required|url',
-            'price' => 'required',
+            'price' => 'required|numeric',
             'series' => 'required|max:150',
             'date' => 'required|max:150',
             'type' => [
